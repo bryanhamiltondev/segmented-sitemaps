@@ -9,7 +9,7 @@ and the site was actively telling Google to crawl hundreds of pages that don't
 exist. Crawl budget went to corpses while live pages waited in line.
 
 This library is the fix, extracted verbatim from production. It builds a
-**segmented sitemap set** where every listed URL is proven live by construction:
+**segmented sitemap set** designed so nothing dead gets added by construction:
 an entity only enters the sitemap if it has an upcoming event, and every
 `<lastmod>` is derived from real data instead of stamped with today's date.
 
@@ -25,7 +25,7 @@ One run on the real site:
 | venues | 702 | 190 | 512 venues had no upcoming show - dead URLs, gone |
 | cities | 5 | 169 | cities are derived from upcoming events, not a stale curated list |
 | artists | 99 | 99 | profiles always render - all stay |
-| **total** | ~900 | **473** | every remaining URL provably renders |
+| **total** | ~900 | **473** | 512 dead URLs removed; 95 residual 404s remain in the live data |
 
 `Crawled - not indexed` on venue/city URLs is the metric that should collapse
 after a switch like this. That's the point.
