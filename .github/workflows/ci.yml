@@ -1,0 +1,35 @@
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php: ['7.4', '8.0', '8.1', '8.2', '8.3']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+      - name: Lint
+        run: php -l src/segmented-sitemaps.php && php -l bin/generate-sitemaps.php
+      - name: Self-tests
+        run: php tests/run-tests.php
+      - name: Demo drift check (pinned-date sample output matches a fresh run)
+        if: matrix.php == '8.3'
+        # byte-compare only the iconv-free outputs (index/genres/pages);
+        # venue/city slugs go through locale-sensitive translit, so those
+        # segments are checked at the report level instead
+        run: |
+          mkdir -p /tmp/demo-verify
+          SITEMAP_OUTDIR=/tmp/demo-verify php bin/generate-sitemaps.php examples/sample-config.php > /dev/null
+          for f in sitemap.xml sitemap-genres.xml sitemap-pages.xml; do
+            diff -q "docs/demo/xml/$f" "/tmp/demo-verify/$f" || (echo "DRIFT: docs/demo/xml/$f does not match a fresh run - regenerate with: SITEMAP_OUTDIR=docs/demo/xml php bin/generate-sitemaps.php examples/sample-config.php" && exit 1)
+          done
+          php -r '$r=json_decode(file_get_contents("/tmp/demo-verify/report.json"),true); exit(($r["ok"]===true && $r["data"]["artists"]===5 && $r["segments"][0]["count"]===4 && $r["guardSkipped"]===1)?0:1);'
