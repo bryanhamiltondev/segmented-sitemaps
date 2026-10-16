@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>segmented-sitemaps - demo</title>
+<meta name="description" content="Crawl-budget-aware segmented sitemap generator. Demo output generated from bundled sample data by the real PHP library - no mocks.">
+<style>
+:root{--bg:#0a0e13;--panel:#10161f;--line:#1d2735;--txt:#d6dee9;--dim:#8b98a9;--cyan:#00d2ff;--green:#3fb950;--mono:ui-monospace,'SF Mono','Cascadia Code',Menlo,Consolas,monospace}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--txt);font:16px/1.6 var(--mono);padding:48px 20px 80px}
+.wrap{max-width:860px;margin:0 auto}
+.kicker{font-size:11px;letter-spacing:.25em;color:var(--cyan);text-transform:uppercase}
+h1{font-size:clamp(26px,5vw,38px);font-weight:800;margin:10px 0 6px;letter-spacing:-.02em}
+h1 .thin{color:var(--dim);font-weight:400}
+.lede{color:var(--dim);max-width:62ch}
+.story{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:24px;margin:32px 0}
+.story p{color:var(--txt)}
+.story .big{font-size:clamp(20px,3.6vw,26px);font-weight:800;line-height:1.35}
+.story .big em{color:var(--cyan);font-style:normal}
+.nums{display:flex;flex-wrap:wrap;gap:14px;margin-top:20px}
+.num{flex:1 1 140px;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:14px 16px}
+.num b{display:block;font-size:24px;color:var(--cyan)}
+.num span{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+.num.off b{color:#f0883e;text-decoration:line-through}
+h2{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin:36px 0 12px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--dim);text-align:left;padding:8px 12px;border-bottom:1px solid var(--line)}
+td{padding:10px 12px;border-bottom:1px solid var(--line)}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+td.n{color:var(--cyan);font-weight:700}
+tr.total td{border-bottom:none;font-weight:800}
+tr.total td.n{color:var(--txt)}
+details{background:var(--panel);border:1px solid var(--line);border-radius:8px;margin-bottom:10px}
+summary{cursor:pointer;padding:12px 16px;display:flex;justify-content:space-between;gap:12px;list-style:none}
+summary::-webkit-details-marker{display:none}
+.seg{color:var(--cyan)}
+.cnt{color:var(--dim);font-size:12px}
+pre{overflow-x:auto;padding:0 16px 16px;font-size:12px;line-height:1.55;color:#a8d3e8}
+.foot{margin-top:44px;color:var(--dim);font-size:13px}
+.foot a{color:var(--cyan)}
+.tag{display:inline-block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--line);border-radius:99px;padding:3px 10px;margin-right:6px;color:var(--dim)}
+.ok{color:var(--green)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="kicker">segmented-sitemaps - live output</div>
+  <h1>Every segment. <span class="thin">Zero dead URLs.</span></h1>
+  <p class="lede">This page shows the real output of the real generator, run by the real PHP library against the bundled sample dataset. No mocks, no screenshots - this is the tool doing its job.</p>
+
+  <div class="story">
+    <p class="big">The production run this library was extracted from: a 1,000-page event directory whose sitemap listed <em>702 venues</em> - <em>512 of them dead</em>.</p>
+    <div class="nums">
+      <div class="num off"><b>~900</b><span>urls before</span></div>
+      <div class="num"><b>473</b><span>urls after</span></div>
+      <div class="num"><b>190/702</b><span>venues kept</span></div>
+      <div class="num"><b>0</b><span>404s told to google</span></div>
+    </div>
+  </div>
+
+  <h2>Run report</h2>
+  <table>
+    <tr><th>segment</th><th>file</th><th class="n">urls</th></tr>
+    <tr><td>artists</td><td><code>sitemap-artists.xml</code></td><td class="n">4</td></tr>
+<tr><td>venues</td><td><code>sitemap-venues.xml</code></td><td class="n">4</td></tr>
+<tr><td>cities</td><td><code>sitemap-cities.xml</code></td><td class="n">5</td></tr>
+<tr><td>genres</td><td><code>sitemap-genres.xml</code></td><td class="n">6</td></tr>
+<tr><td>pages</td><td><code>sitemap-pages.xml</code></td><td class="n">8</td></tr>
+    <tr class="total"><td colspan="2">total</td><td class="n">27</td></tr>
+  </table>
+  <p class="lede" style="margin-top:10px;font-size:13px"><span class="ok">ok</span> - slug guard skipped 1 malformed slug(s) - index written <span class="tag">php 8.x</span><span class="tag">0 deps</span></p>
+
+  <h2>sitemap.xml (the index)</h2>
+  <details open><summary><span class="seg">sitemap.xml</span><span class="cnt">index</span></summary><pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;sitemapindex xmlns=&quot;http://www.sitemaps.org/schemas/sitemap/0.9&quot;&gt;
+  &lt;sitemap&gt;
+    &lt;loc&gt;https://www.example.com/sitemap-artists.xml&lt;/loc&gt;
+    &lt;lastmod&gt;2026-10-16&lt;/lastmod&gt;
+  &lt;/sitemap&gt;
+  &lt;sitemap&gt;
+    &lt;loc&gt;https://www.example.com/sitemap-venues.xml&lt;/loc&gt;
+    &lt;lastmod&gt;2026-10-16&lt;/lastmod&gt;
+  &lt;/sitemap&gt;
+  &lt;sitemap&gt;
+    &lt;loc&gt;https://www.example.com/sitemap-cities.xml&lt;/loc&gt;
+    &lt;lastmod&gt;2026-10-16&lt;/lastmod&gt;
+  &lt;/sitemap&gt;
+  &lt;sitemap&gt;
+    &lt;loc&gt;https://www.example.com/sitemap-genres.xml&lt;/loc&gt;
+    &lt;lastmod&gt;2026-10-16&lt;/lastmod&gt;
+  &lt;/sitemap&gt;
+  &lt;sitemap&gt;
+    &lt;loc&gt;https://www.example.com/sitemap-pages.xml&lt;/loc&gt;
+    &lt;lastmod&gt;2026-10-16&lt;/lastmod&gt;
+  &lt;/sitemap&gt;
+&lt;/sitemapindex&gt;</pre></details>
+
+  <h2>Segments</h2>
+  <details open>
+<summary><span class="seg">sitemap-artists.xml</span><span class="cnt">4 urls</span></summary>
+<pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;urlset xmlns=&quot;http://www.sitemaps.org/schemas/sitemap/0.9&quot;&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://www.example.com/ameli/&lt;/loc&gt;
+    &lt;lastmod&gt;2026-11-25&lt;/lastmod&gt;
+  &lt;/url&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://www.example.com/tiesto/&lt;/loc&gt;
+  &lt;/url&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://www.example.com/charlotte-de-witte/&lt;/loc&gt;
+    &lt;lastmod&gt;2026-10-17&lt;/lastmod&gt;
+  &lt;/url&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://www.example.com/marmy-summermatter/&lt;/loc&gt;
+  &lt;/url&gt;
+&lt;/urlset&gt;</pre>
+</details>
+<details>
+<summary><span class="seg">sitemap-venues.xml</span><span class="cnt">4 urls</span></summary>
+<pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;urlset xmlns=&quot;http://www.sitemaps.org/schemas/sitemap/0.9&quot;&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://www.example.com/venue/kraken-klubb&lt;/loc&gt;
+    &lt;lastmod&gt;2026-10-19&lt;/lastmod&gt;
+  &lt;/url&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://www.example.com/venue/fuse&lt;/loc&gt;
+    &lt;lastmod&gt;2026-10-17&lt;/lastmod&gt;
+  &lt;/url&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://www.example.com/venue/mork-bork-klubb&lt;/loc&gt;
+    &lt;lastmod&gt;2026-10-28&lt;/lastmod&gt;
+  &lt;/url&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://www.example.com/venue/baki-lounge&lt;/loc&gt;
+    &lt;lastmod&gt;2026-10-24&lt;/lastmod&gt;
+  &lt;/url&gt;
+&lt;/urlset&gt;</pre>
+</details>
+<details>
+<summary><span class="seg">sitemap-cities.xml</span><span class="cnt">5 urls</span></summary>
+<pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;urlset xmlns=&quot;http://www.sitemaps.org/schemas/sitemap/0.9&quot;&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://www.example.com/city/lyon/&lt;/loc&gt;
+    &lt;lastmod&gt;2026-10-19&lt;/lastmod&gt;
+  &lt;/url&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://www.example.com/city/brussels/&lt;/loc&gt;
+    &lt;lastmod&gt;2026-10-17&lt;/lastmod&gt;
+  &lt;/url&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://www.example.com/city/tromso/&lt;/loc&gt;
+    &lt;lastmod&gt;2026-10-28&lt;/lastmod&gt;
+  &lt;/url&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://www.example.com/city/astana/&lt;/loc&gt;
+    &lt;lastmod&gt;2026-11-05&lt;/lastmod&gt;
+  &lt;/url&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://www.example.com/city/bakaa/&lt;/loc&gt;
+    &lt;lastmod&gt;2026-10-24&lt;/lastmod&gt;
+  &lt;/url&gt;
+&lt;/urlset&gt;</pre>
+</details>
+<details>
+<summary><span class="seg">sitemap-genres.xml</span><span class="cnt">6 urls</span></summary>
+<pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;urlset xmlns=&quot;http://www.sitemaps.org/schemas/sitemap/0.9&quot;&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://www.example.com/genre/techno/&lt;/loc&gt;
+    &lt;lastmod&gt;2026-10-16&lt;/lastmod&gt;
+  &lt;/url&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://www.example.com/genre/house/&lt;/loc&gt;
+    &lt;lastmod&gt;2026-10-16&lt;/lastmod&gt;
+  &lt;/url&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://www.example.com/genre/tech-house/&lt;/loc&gt;
+    &lt;lastmod&gt;2026-10-16&lt;/lastmod&gt;
+  &lt;/url&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://www.example.com/genre/electro-house/&lt;/loc&gt;
+    &lt;lastmod&gt;2026-10-16&lt;/lastmod&gt;
+  &lt;/url&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://www.example.com/genre/trance/&lt;/loc&gt;
+    &lt;lastmod&gt;2026-10-16&lt;/lastmod&gt;
+  &lt;/url&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://www.example.com/genre/edm/&lt;/loc&gt;
+    &lt;lastmod&gt;2026-10-16&lt;/lastmod&gt;
+  &lt;/url&gt;
+&lt;/urlset&gt;</pre>
+</details>
+<details>
+<summary><span class="seg">sitemap-pages.xml</span><span class="cnt">8 urls</span></summary>
+<pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;urlset xmlns=&quot;http://www.sitemaps.org/schemas/sitemap/0.9&quot;&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://www.example.com/&lt;/loc&gt;
+    &lt;lastmod&gt;2026-10-16&lt;/lastmod&gt;
+  &lt;/url&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://www.example.com/artists/&lt;/loc&gt;
+    &lt;lastmod&gt;2026-10-16&lt;/lastmod&gt;
+  &lt;/url&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://www.example.com/venues/&lt;/loc&gt;
+    &lt;lastmod&gt;2026-10-16&lt;/lastmod&gt;
+  &lt;/url&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://www.example.com/genres/&lt;/loc&gt;
+    &lt;lastmod&gt;2026-10-16&lt;/lastmod&gt;
+  &lt;/url&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://www.example.com/shows/&lt;/loc&gt;
+    &lt;lastmod&gt;2026-10-16&lt;/lastmod&gt;
+  &lt;/url&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://www.example.com/calendar/&lt;/loc&gt;
+    &lt;lastmod&gt;2026-10-16&lt;/lastmod&gt;
+  &lt;/url&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://www.example.com/contact.php&lt;/loc&gt;
+    &lt;lastmod&gt;2026-10-16&lt;/lastmod&gt;
+  &lt;/url&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://www.example.com/privacy/&lt;/loc&gt;
+    &lt;lastmod&gt;2026-10-16&lt;/lastmod&gt;
+  &lt;/url&gt;
+&lt;/urlset&gt;</pre>
+</details>
+
+  <div class="foot">
+    Generated by <a href="https://github.com/bryanhamiltondev/segmented-sitemaps">segmented-sitemaps</a> - extracted from production at <a href="https://thedjcalendar.com">The DJ Calendar</a>. Zero dependencies, PHP 7.4+.
+  </div>
+</div>
+</body>
+</html>

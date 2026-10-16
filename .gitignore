@@ -1,0 +1,4 @@
+/vendor/
+/examples/out/
+*.log
+.DS_Store
