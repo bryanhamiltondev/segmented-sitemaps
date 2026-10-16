@@ -1,0 +1,46 @@
+{
+    "events": [
+        {
+            "slug": "kraken-klubb-ameli",
+            "event_date": "2026-10-19 00:00:00",
+            "venue_name": "Kraken Klubb",
+            "city": "Lyon"
+        },
+        {
+            "slug": "fuse-cdw",
+            "event_date": "2026-10-17 00:00:00",
+            "venue_name": "Fuse",
+            "city": "Brussels"
+        },
+        {
+            "slug": "mork-night",
+            "event_date": "2026-10-28 00:00:00",
+            "venue_name": "Mörk Börk Klubb",
+            "city": "Tromsø"
+        },
+        {
+            "slug": "astana-boris",
+            "event_date": "2026-11-05 00:00:00",
+            "venue_name": "Boris Brejcha @ Congress Center Astana",
+            "city": "Astana"
+        },
+        {
+            "slug": "old-liv-gig",
+            "event_date": "2026-10-09 00:00:00",
+            "venue_name": "LIV",
+            "city": "Miami Beach"
+        },
+        {
+            "slug": "old-womb-gig",
+            "event_date": "2026-10-14 00:00:00",
+            "venue_name": "Output",
+            "city": "Brooklyn"
+        },
+        {
+            "slug": "baki-night",
+            "event_date": "2026-10-24 00:00:00",
+            "venue_name": "BakÃ Ä± Lounge",
+            "city": "BakÃÄ±"
+        }
+    ]
+}

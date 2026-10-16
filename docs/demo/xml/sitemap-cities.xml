@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://www.example.com/city/lyon/</loc>
+    <lastmod>2026-10-19</lastmod>
+  </url>
+  <url>
+    <loc>https://www.example.com/city/brussels/</loc>
+    <lastmod>2026-10-17</lastmod>
+  </url>
+  <url>
+    <loc>https://www.example.com/city/tromso/</loc>
+    <lastmod>2026-10-28</lastmod>
+  </url>
+  <url>
+    <loc>https://www.example.com/city/astana/</loc>
+    <lastmod>2026-11-05</lastmod>
+  </url>
+  <url>
+    <loc>https://www.example.com/city/bakaa/</loc>
+    <lastmod>2026-10-24</lastmod>
+  </url>
+</urlset>

@@ -1,0 +1,51 @@
+[
+    {
+        "id": 1,
+        "name": "Kraken Klubb",
+        "slug": "kraken-klubb",
+        "city": "Lyon",
+        "state": null
+    },
+    {
+        "id": 2,
+        "name": "Fuse",
+        "slug": "fuse",
+        "city": "Brussels",
+        "state": null
+    },
+    {
+        "id": 3,
+        "name": "Mörk Börk Klubb",
+        "slug": "mork-bork-klubb",
+        "city": "Tromsø",
+        "state": null
+    },
+    {
+        "id": 4,
+        "name": "Academy LA",
+        "slug": "academy-la",
+        "city": "Los Angeles",
+        "state": "CA"
+    },
+    {
+        "id": 5,
+        "name": "Output",
+        "slug": "output",
+        "city": "Brooklyn",
+        "state": "NY"
+    },
+    {
+        "id": 6,
+        "name": "BakÃ Ä± Lounge",
+        "slug": "baki-lounge",
+        "city": "BakÃÄ±",
+        "state": null
+    },
+    {
+        "id": 7,
+        "name": "Congress Center Astana",
+        "slug": "congress-center-astana",
+        "city": "Astana",
+        "state": null
+    }
+]

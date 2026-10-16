@@ -1,0 +1,40 @@
+{
+    "ok": true,
+    "error": "",
+    "data": {
+        "artists": 5,
+        "events": 7,
+        "upcoming": 5,
+        "venues": 7,
+        "cities": 2
+    },
+    "segments": [
+        {
+            "name": "artists",
+            "file": "sitemap-artists.xml",
+            "count": 4
+        },
+        {
+            "name": "venues",
+            "file": "sitemap-venues.xml",
+            "count": 4
+        },
+        {
+            "name": "cities",
+            "file": "sitemap-cities.xml",
+            "count": 5
+        },
+        {
+            "name": "genres",
+            "file": "sitemap-genres.xml",
+            "count": 6
+        },
+        {
+            "name": "pages",
+            "file": "sitemap-pages.xml",
+            "count": 8
+        }
+    ],
+    "guardSkipped": 1,
+    "indexWritten": true
+}

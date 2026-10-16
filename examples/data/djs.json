@@ -1,0 +1,50 @@
+[
+    {
+        "id": "ameli",
+        "name": "Amelie Lens",
+        "tour_dates": [
+            {
+                "ymd": "2026-10-19",
+                "venue": "Kraken Klubb"
+            },
+            {
+                "ymd": "2026-11-25",
+                "venue": "Awakenings"
+            }
+        ]
+    },
+    {
+        "id": "tiesto",
+        "name": "Tiësto",
+        "tour_dates": [
+            {
+                "ymd": "2026-10-11",
+                "venue": "LIV"
+            },
+            {
+                "ymd": "2026-10-15",
+                "venue": "XS"
+            }
+        ]
+    },
+    {
+        "id": "charlotte-de-witte",
+        "name": "Charlotte de Witte",
+        "tour_dates": [
+            {
+                "ymd": "2026-10-17",
+                "venue": "Fuse"
+            }
+        ]
+    },
+    {
+        "id": "marmy-summermatter",
+        "name": "Marmy Summermatter",
+        "tour_dates": []
+    },
+    {
+        "id": "Bad Slug!",
+        "name": "Slug Guard Bait",
+        "tour_dates": []
+    }
+]
